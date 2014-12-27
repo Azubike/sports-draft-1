@@ -1,0 +1,438 @@
+//@import "reset.css";
+
+/*General*/
+
+$light:
+// #efefef;
+#BDBDBE;
+$lightopaque: rgba(239, 239, 239, 0.15);
+$dark: 
+//#0F0906;
+#0A1324;
+$secondary: #cf4d46;
+@mixin Back($img) {
+	background-image: $img;
+	background-position: center;
+	//background-attachment: fixed;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: 4px solid $light;
+}
+
+
+
+@mixin Herotxt($herosize){
+	font-size: $herosize;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.82);
+}
+
+@font-face {
+	font-family: 'Proxima'; 
+	src: url('../font/League_Gothic.otf');
+  font-weight: bold;
+}
+@font-face {
+	font-family: 'Proxima';
+	src: url('../font/Proxima.otf');
+}
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+	font-family: 'Proxima';
+	background-color: $dark;
+	color: $light;
+}
+
+.nobrd {
+  border: none !important;
+}
+.noshadow {
+  text-shadow: none !important;
+}
+
+.lrg {
+ font-weight:bold !important;
+}
+
+section {
+  height: 100% !important;
+  overflow: hidden;
+}
+
+/*Background Images*/
+
+.floor1 {
+	@include Back(url(../img/destiny3.jpg));
+}
+
+.floor2 {
+  border-bottom: 4px solid $light;
+}
+
+.floor3{
+  @include Back(url(../img/esports3.jpg));
+
+  .subhead {
+    background-color: rgba(0, 0, 0, 0.21);
+  }
+}
+
+.floor4 {
+    background-color: $light;
+}
+.floor5 {
+    background-color: $dark;
+}
+.main h1.cd-headline.zoom {
+padding-top: 9.5rem;
+}
+/*Typography*/
+
+.hero { 
+	h1 { @include Herotxt(6rem); }
+	border-bottom: 4px solid $light;
+
+ }
+ .cd-section:nth-of-type(odd) p {
+color: #FFFFFF !important;
+}
+.awe {
+	@extend .fa;
+	font-size: 3rem !important;
+	@extend .herotxt;
+  color: $light;
+}
+a:hover b.is-visible {
+  color: rgb(49, 65, 91);
+}
+
+a:hover i {
+color: $secondary;
+}
+
+a {
+	i {
+		color: $light;
+	}
+}
+
+b {
+  color: $secondary;
+}
+
+section {
+
+	h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+	}
+}
+
+.expand {
+
+	h3 {
+		@include Herotxt(3rem);
+    color: $light;
+	}
+}
+
+.subhead {
+  @extend .hero;
+  @include Herotxt(1.8rem);
+  border-bottom: none;
+}
+
+
+
+.dark {
+  color: $dark;
+}
+
+.light {
+  color: $light;
+}
+
+.title {
+  //text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $secondary;
+  padding-top: 30px;
+}
+p span {
+  color: $secondary;
+}
+
+.cent {
+  text-align: center;
+}
+/*Scaffolding*/
+
+.hero1 { 
+	//height: 60%;
+}
+
+.row.main:before {
+	content: ' ';
+	width: 100%;
+	height: 4rem;
+}
+
+.expand {
+	height:30%;
+}
+
+.boxed {
+    padding: 10px;
+    border: 10px solid #FFFFFF;
+}
+
+a.gridlocked  {
+  img {
+    width: 25%;
+    float: left;
+    border: 1px solid $light;
+  }
+  .half {
+    width: 50%;
+    height: 100%;
+  }
+  .one {
+    border-left: none;
+  }
+  .four {
+    border-right: none;
+  }
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: $dark;
+    z-index: 10;
+  }
+  &:hover {
+    .overlay {
+      display: block;
+    }
+  }
+}
+#section3 {
+  //padding: 0px;
+  @include Back(url('/sports/img/jet.jpg'));
+
+  .magazine {
+    margin: 0px 20px;
+    height: 600px;
+
+    img {
+      float: left;
+    }
+    img.secondary {
+    height: 176px;
+    display: block;
+    float: none;
+    border-bottom: 4px solid transparent;
+    }
+  }
+}
+div.front {
+height: 100%;
+width: 30%;
+border-right: 4px solid transparent;
+}
+
+/* Table  */
+th {
+font-weight: normal;
+padding: 10px;
+background-color: $secondary;
+}
+td  {
+  padding: 10px;
+    &:nth-child(odd) {
+    background-color: $dark;
+    color: $light;
+    }
+    &:nth-child(even) {
+      background-color: lighten($light, 25%);
+    }
+}
+
+
+
+
+// animated header
+
+@import "header.scss";
+
+//expand
+
+@import "expand.scss";
+
+// vertical navigation 
+
+//@import "nav_style.css";
+
+
+.grid {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 320px;
+  max-width: 480px;
+  max-height: 360px;
+  width: 48%;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  p {
+    color: white;
+  }
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+.grid figure h2 span {
+  font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+figure.effect-oscar {
+  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+  background: linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);
+}
+
+figure.effect-oscar img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.effect-oscar figcaption {
+  padding: 3em;
+  background-color: rgba(58,52,42,0.7);
+  -webkit-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+
+figure.effect-oscar figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  content: '';
+}
+
+figure.effect-oscar h2 {
+  margin: 20% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+figure.effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+  background-color: rgba(58,52,42,0);
+}
+
+figure.effect-oscar:hover img {
+  opacity: 0.4;
+}
